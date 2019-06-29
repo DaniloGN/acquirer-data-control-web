@@ -7,7 +7,7 @@ function App() {
     <div className="App">
         <PortalNavbar />
         <Container maxWidth="xl" className="Container">
-
+            <p>shauhsauhsauh</p>
         </Container>
     </div>
   );

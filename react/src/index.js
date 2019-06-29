@@ -2,16 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './screens/App';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {Route, BrowserRouter, Redirect} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
+import Dashboard from "./screens/Dashboard";
+import FilesTable from "./screens/FilesTable";
 
 ReactDOM.render(
     <BrowserRouter>
-        <Switch>
-            <Route path="/" exact={true} component={App}>
-
-            </Route>
-        </Switch>
+        <Route path="/" component={App} render={({ match: { url } }) => (
+                <>
+                    <Route path={`/`} component={Dashboard} exact />
+                    <Route path={`/filestable`} component={FilesTable} />
+                </>
+            )}
+        />
     </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
