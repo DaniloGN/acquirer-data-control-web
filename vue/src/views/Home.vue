@@ -1,7 +1,7 @@
 <template>
     <v-app class="home">
         <PortalNavbar></PortalNavbar>
-        <v-container fluid>
+        <v-container id="main-container" fluid>
             <router-view></router-view>
         </v-container>
     </v-app>
@@ -24,5 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
+    #main-container
+        background: #f0f0f0
 </style>
