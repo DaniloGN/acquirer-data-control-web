@@ -6,5 +6,8 @@ export default {
     },
     postContracts (client, acquirer, establishment) {
         return Api().post('contratos', {body: {client: client, acquirer: acquirer, establishment: establishment}}, {headers: {"Content-Type": "application/json"}})
+    },
+    async deleteContract(id) {
+        return await Api().delete('contratos',{ data: id });
     }
 }
