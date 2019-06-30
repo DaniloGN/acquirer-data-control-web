@@ -23,7 +23,9 @@ export default {
             items:[
                 {text: 'Dashboard', to: '/'},
                 {text: 'Arquivos', to: '/arquivos'},
-                {text: 'Adquirentes', to: ''},
+                {text: 'Contratos', to: '/contratos'},
+                {text: 'Clientes', to: '/clientes'},
+                {text: 'Adquirentes', to: '/adquirentes'},
             ]
         }
     }

@@ -1,30 +1,28 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div>
-            <v-layout>
-                <v-flex xs12>
-                    <v-data-table :loading="loading" :headers="headers" :items="items" item-key="id" class="elevation-5" :no-data-text="'Nenhum arquivo disponível'">
-                        <template v-slot:items="props">
-                            <tr>
-                                <td>{{ props.item.acquirer_name }}</td>
-                                <td class="white--text" :style="{backgroundColor: statusColor(props.item.status)}">{{ props.item.status }}</td>
-                                <td class="">{{ props.item.establishment }}</td>
-                                <td class="">{{ props.item.sequence }}</td>
-                                <td class="">{{ props.item.processing_date }}</td>
-                                <td class="">{{ props.item.registry_type }}</td>
-                                <td class="">{{ props.item.initial_period }}</td>
-                                <td class="">{{ props.item.final_period }}</td>
-                                <td>
-                                    <v-layout row>
-                                    <v-btn flat fab @click="acceptFile(props.item.id, props.item)"><v-icon>check</v-icon></v-btn>
-                                    <v-btn flat fab @click="rejectFile(props.item.id, props.item)"><v-icon>close</v-icon></v-btn>
-                                    </v-layout>
-                                </td>
-                            </tr>
-                        </template>
-                    </v-data-table>
-                </v-flex>
-            </v-layout>
-    </div>
+<template>
+    <v-layout class="files">
+        <v-flex xs12>
+            <v-data-table :loading="loading" :headers="headers" :items="items" item-key="id" class="elevation-5" :no-data-text="'Nenhum arquivo disponível'">
+                <template v-slot:items="props">
+                    <tr>
+                        <td>{{ props.item.acquirer_name }}</td>
+                        <td class="white--text" :style="{backgroundColor: statusColor(props.item.status)}">{{ props.item.status }}</td>
+                        <td class="">{{ props.item.establishment }}</td>
+                        <td class="">{{ props.item.sequence }}</td>
+                        <td class="">{{ props.item.processing_date }}</td>
+                        <td class="">{{ props.item.registry_type }}</td>
+                        <td class="">{{ props.item.initial_period }}</td>
+                        <td class="">{{ props.item.final_period }}</td>
+                        <td>
+                            <v-layout row>
+                            <v-btn flat fab @click="acceptFile(props.item.id, props.item)"><v-icon>check</v-icon></v-btn>
+                            <v-btn flat fab @click="rejectFile(props.item.id, props.item)"><v-icon>close</v-icon></v-btn>
+                            </v-layout>
+                        </td>
+                    </tr>
+                </template>
+            </v-data-table>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>
