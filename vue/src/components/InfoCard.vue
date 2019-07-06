@@ -4,8 +4,7 @@
         <v-card-text><p>Número de {{content}}s: {{item.contract_number}}</p></v-card-text>
         <v-card-actions class="align-content-center">
             <v-spacer></v-spacer>
-            <v-btn flat small class="blue-grey--text">Adicionar {{content}}</v-btn>
-            <v-btn flat small class="red--text">Remover {{content}}</v-btn>
+            <slot></slot>
         </v-card-actions>
     </v-card>
 </template>

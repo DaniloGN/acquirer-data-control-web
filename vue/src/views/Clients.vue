@@ -3,6 +3,7 @@
         <template v-for="(item, i) in clients">
             <v-flex xs12 sm6 md4 :key="i">
                 <infoCard content="adquirente" :item="item" :key="i">
+                    <v-btn @click="deleteClient(item.id, i)" flat small class="red--text">Remover</v-btn>
                 </infoCard>
             </v-flex>
         </template>
@@ -67,8 +68,14 @@
                 if(this.name != "" && this.name != null) return false
                 else return true
             },
-            delete(id){
-                ClientService.deleteClient(id)
+            deleteClient(id, i) {
+                if (confirm("Deseja mesmo excluir?")) {
+                    ClientService.deleteClient(id).then((response) => {
+                        if (response.status === 200) {
+                            this.clients.splice(i, 1)
+                        }
+                    })
+                }
             }
         },
     }

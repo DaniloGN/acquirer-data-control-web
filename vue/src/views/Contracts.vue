@@ -9,7 +9,7 @@
                         <td>{{ props.item.establishment }}</td>
                         <td>{{ props.item.create_at}}</td>
                         <td>
-                            <v-btn small @click="deleteContract(props.item)"><v-icon>close</v-icon>Excluir</v-btn>
+                            <v-btn small flat class="red--text" @click="deleteContract(props.item)"><v-icon>close</v-icon>Excluir</v-btn>
                         </td>
                     </tr>
                 </template>
