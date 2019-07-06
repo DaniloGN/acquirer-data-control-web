@@ -4,6 +4,9 @@ export default {
     getFiles () {
         return Api().get('arquivos')
     },
+    sendFile(formData){
+        return Api().post('arquivos', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+    },
     async changeStatus(id, status){
         let response = await Api().put('arquivos/estado/'+id, status, {headers: {"Content-Type": "text/plain"}})
         return response.status;
