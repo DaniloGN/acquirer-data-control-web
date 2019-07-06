@@ -1,8 +1,8 @@
 <template>
     <v-container fluid id="body">
         <template v-for="(acquirer,i) in acquirers">
-            <v-card :key="i" class="elevation-5 pt-3 statistics-card">
-            <vue-frappe v-if="render"
+            <v-card v-if="acquirer.contract_number > 0" :key="i" class="elevation-5 pt-3 statistics-card">
+                <vue-frappe v-if="render"
                         :id="acquirer.name+'chart'"
                         :title="'Número de arquivos recepcionados por ' + acquirer.name"
                         type="bar"
@@ -15,7 +15,7 @@
                         :dataSets="[
                         {name: 'Recepcionados', values: received[i]},
                         {name: 'Não recepcionados', values: not_received[i]},]">
-            </vue-frappe>
+                </vue-frappe>
             </v-card>
         </template>
     </v-container>
