@@ -18,6 +18,16 @@ export default {
         else if(name != null) response = await Api().get('arquivos/estatisticas?adquirente='+name)
         else response = await Api().get('arquivos/estatisticas')
         return response.data
+    },
+    async downloadFile(id){
+        await Api().get('arquivos/download/'+id, {headers: {'Content-Type':'application/txt'}}).then((response)=>{
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', response.data+'.txt');
+            document.body.appendChild(link);
+            link.click();
+        })
     }
 
 }

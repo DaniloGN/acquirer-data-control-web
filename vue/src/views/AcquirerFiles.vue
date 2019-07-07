@@ -4,6 +4,7 @@
             <v-data-table :loading="loading" :headers="headers" :items="items" item-key="id" class="elevation-5" :no-data-text="'Nenhum arquivo disponível'">
                 <template v-slot:items="props">
                     <tr>
+                        <td><v-btn fab small flat @click="downloadFile(props.item.id)"><v-icon>cloud_download</v-icon></v-btn></td>
                         <td>{{ props.item.acquirer_name }}</td>
                         <td class="white--text" :style="{backgroundColor: statusColor(props.item.status)}">{{ props.item.status }}</td>
                         <td class="">{{ props.item.establishment }}</td>
@@ -34,6 +35,7 @@
             return {
                 loading: false,
                 headers: [
+                    {text: 'Download', value:'download', sortable: false},
                     { text: 'Adquirente', value: 'acquirer_name', sortable: true},
                     { text: 'Estado', value: 'status', sortable: true},
                     { text: 'Estabelecimento', value: 'establishment', sortable: false},
@@ -74,6 +76,9 @@
             async rejectFile(id, item){
                 let response = await FilesService.changeStatus(id, "Rejeitado")
                 if(response == 200) item.status = "Rejeitado"
+            },
+            async downloadFile(id){
+                FilesService.downloadFile(id)
             }
         },
     }
