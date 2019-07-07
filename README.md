@@ -1,4 +1,4 @@
-# acquirer-data-control-web
+# Aplicação web para controle e automação de recepção de arquivos de adquirentes
 
 ## Descrição e funcionalidades
 
